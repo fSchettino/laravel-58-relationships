@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function phone() {
         return $this->hasOne(Phone::class);
     }
+
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
 }
