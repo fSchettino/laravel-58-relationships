@@ -44,4 +44,9 @@ class User extends Authenticatable
     public function posts() {
         return $this->hasMany(Post::class);
     }
+
+    public function roles() {
+        // withPivot method tells Laravel about all additional data included in the pivot table and which can be retrieved
+        return $this->belongsToMany(Role::class)->withPivot(['name'])->withTimestamps();
+    }
 }
